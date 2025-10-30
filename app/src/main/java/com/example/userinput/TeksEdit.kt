@@ -10,8 +10,8 @@ import androidx.compose.ui.Modifier
 @Composable
 fun FormDataDiri(modifier: Modifier
 ){
-    var texsNama by remember { mutableStateOf(value = "") }
-    var texsAlamat by remember { mutableStateOf(value = "") }
+    var texsNama by remember { mutableStateOf("") }
+    var texsAlamat by remember { mutableStateOf("") }
     var texstJK by remember {mutableStateOf("")}
 
 }
