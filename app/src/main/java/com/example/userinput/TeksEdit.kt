@@ -35,7 +35,6 @@ fun FormDataDiri(modifier: Modifier
     Column(modifier = Modifier.padding(top =50.dp),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally) {
-        val textNama = null
         OutlinedTextField(
             value = textNama,
             singleLine = true,
@@ -48,7 +47,6 @@ fun FormDataDiri(modifier: Modifier
     )
         Row {
             gender.forEach { item ->
-                val textJK = null
                 Row(modifier = Modifier.selectable(
                     selected = textJK == item,
                     onClick = {textJK = item}
@@ -62,4 +60,14 @@ fun FormDataDiri(modifier: Modifier
                 }
             }
         }
+        OutlinedTextField(
+            value = textAlamat,
+            singleLine = true,
+            modifier = Modifier.width(250.dp),
+            label = { Text(text = "Alamat Lengkap") },
+            onValueChange = {
+                textAlamat = it
+            }
+        )
+    }
 }
