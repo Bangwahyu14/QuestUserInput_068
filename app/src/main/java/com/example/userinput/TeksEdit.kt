@@ -22,9 +22,9 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun FormDataDiri(modifier: Modifier
 ){
-    var texsNama by remember { mutableStateOf("") }
-    var texsAlamat by remember { mutableStateOf("") }
-    var texstJK by remember {mutableStateOf("")}
+    var textNama by remember { mutableStateOf("") }
+    var textAlamat by remember { mutableStateOf("") }
+    var textJK by remember {mutableStateOf("")}
 
     var nama by remember {mutableStateOf("")}
     var alamat by remember {mutableStateOf("")}
