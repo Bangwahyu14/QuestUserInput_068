@@ -3,6 +3,7 @@ package com.example.userinput
 import android.R.attr.text
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -49,88 +50,18 @@ fun FormulirPendaftaranScreen(modifier: Modifier = Modifier) {
             .fillMaxSize()
             .background(Color(0xFFF5F5F5))
     ) {
-        OutlinedTextField(
-            value = textNama,
-            onValueChange = { textNama = it },
-            label = { Text(stringResource(R.string.hint_nama)) },
-            singleLine = true,
+        Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = 8.dp)
-        )
-        Text(
-            text = stringResource(R.string.jenis_kelamin),
-            modifier = Modifier
-                .align(Alignment.Start)
-                .padding(top = 16.dp, bottom = 8.dp),
-            fontWeight = FontWeight.Bold
-        )
-        gender.forEach { item ->
-            Row(
-                modifier = Modifier
-                    .selectable(
-                        selected = textJK == item,
-                        onClick = { textJK = item }
-                    )
-                    .padding(vertical = 4.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                RadioButton(
-                    selected = textJK == item,
-                    onClick = { textJK = item }
-                )
-                Text(item)
-            }
-        }
-        Text(
-            text = stringResource(R.string.alamat),
-            modifier = Modifier
-                .align(Alignment.Start)
-                .padding(top = 16.dp, bottom = 8.dp),
-            fontWeight = FontWeight.Bold
-        )
-        OutlinedTextField(
-            value = textAlamat,
-            onValueChange = { textAlamat = it },
-            label = { Text(stringResource(R.string.alamat)) },
-            singleLine = true,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 8.dp)
-        )
-        Button(
-            onClick = {
-                nama = textNama
-                jenis = textJK
-                alamat = textAlamat
-            },
-            enabled = textNama.isNotEmpty() && textAlamat.isNotEmpty(),
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 24.dp)
-                .height(dimensionResource(R.dimen.button_height)),
-            shape = RoundedCornerShape(dimensionResource(R.dimen.button_corner_radius)),
-            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF673AB7))
+                .background(Color(0xFF9C8DF0))
+                .padding(vertical = 16.dp),
+            contentAlignment = Alignment.Center
         ) {
-            Text(stringResource(R.string.submit), color = Color.White)
+            Text(
+                text = "Formulir Pendaftaran",
+                color = Color.White,
+                style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold)
+            )
         }
-
-        if (nama.isNotEmpty()) {
-            ElevatedCard(
-                elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.Black),
-                modifier = Modifier
-                    .padding(top = 24.dp)
-                    .fillMaxWidth()
-            ) {
-                Column(modifier = Modifier.padding(16.dp)) {
-                    Text(text = "Nama   : $nama", color = Color.White)
-                    Text(text = "Gender : $jenis", color = Color.White)
-                    Text(text = "Alamat : $alamat", color = Color.White)
-                }
-            }
-        }
-    }
-}
 
 
