@@ -28,6 +28,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -57,6 +58,30 @@ fun FormDataDiri(modifier: Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
         )
+        Text(
+            text = stringResource(R.string.jenis_kelamin),
+            modifier = Modifier
+                .align(Alignment.Start)
+                .padding(top = 16.dp, bottom = 8.dp),
+            fontWeight = FontWeight.Bold
+        )
+        gender.forEach { item ->
+            Row(
+                modifier = Modifier
+                    .selectable(
+                        selected = textJK == item,
+                        onClick = { textJK = item }
+                    )
+                    .padding(vertical = 4.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                RadioButton(
+                    selected = textJK == item,
+                    onClick = { textJK = item }
+                )
+                Text(item)
+            }
+        }
         Row {
             gender.forEach { item ->
                 Row(
