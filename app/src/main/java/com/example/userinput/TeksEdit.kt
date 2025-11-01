@@ -82,6 +82,22 @@ fun FormDataDiri(modifier: Modifier
                 Text(item)
             }
         }
+        Text(
+            text = stringResource(R.string.alamat),
+            modifier = Modifier
+                .align(Alignment.Start)
+                .padding(top = 16.dp, bottom = 8.dp),
+            fontWeight = FontWeight.Bold
+        )
+        OutlinedTextField(
+            value = textAlamat,
+            onValueChange = { textAlamat = it },
+            label = { Text(stringResource(R.string.alamat)) },
+            singleLine = true,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp)
+        )
         Row {
             gender.forEach { item ->
                 Row(
