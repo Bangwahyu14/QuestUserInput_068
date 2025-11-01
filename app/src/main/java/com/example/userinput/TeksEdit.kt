@@ -162,20 +162,22 @@ fun FormulirPendaftaranScreen(modifier: Modifier = Modifier) {
                         .padding(top = 4.dp, bottom = 16.dp)
                 )
                 Button(
-                    onClick = { /* TODO */ },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(48.dp),
+                        .padding(top = 8.dp),
+                    enabled = alamat.isNotEmpty(),
+                    onClick = {
+                        submittedNama = nama
+                        submittedJenis = jenisKelamin
+                        submittedStatus = status
+                        submittedAlamat = alamat
+                    },
                     shape = RoundedCornerShape(50)
                 ) {
-                    Text("Submit")if (submittedNama.isNotEmpty()) {
-                    ElevatedCard(
-                        elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
-                        colors = CardDefaults.cardColors(containerColor = Color.Black),
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(top = 10.dp)
-                    ) {
+                    Text("Submit")
+                }
+
+                Spacer(modifier = Modifier.height(16.dp))
                         Column(
                             modifier = Modifier.padding(horizontal = 10.dp, vertical = 15.dp)
                         ) {
@@ -188,7 +190,3 @@ fun FormulirPendaftaranScreen(modifier: Modifier = Modifier) {
                 }
                 }
             }
-        }
-    }
-}
-
