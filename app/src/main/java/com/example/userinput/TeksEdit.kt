@@ -181,10 +181,10 @@ fun FormulirPendaftaranScreen(modifier: Modifier = Modifier) {
                         Column(
                             modifier = Modifier.padding(horizontal = 10.dp, vertical = 15.dp)
                         ) {
-                            Text("Nama   : $submittedNama", color = Color.White)
-                            Text("Gender : $submittedJenis", color = Color.White)
-                            Text("Status : $submittedStatus", color = Color.White)
-                            Text("Alamat : $submittedAlamat", color = Color.White)
+                            Text("Nama   : $submittedNama", color = Color.Black)
+                            Text("Gender : $submittedJenis", color = Color.Black)
+                            Text("Status : $submittedStatus", color = Color.Black)
+                            Text("Alamat : $submittedAlamat", color = Color.Black)
                         }
                     }
                 }
