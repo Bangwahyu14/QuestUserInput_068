@@ -10,7 +10,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ElevatedCard
@@ -98,73 +100,39 @@ fun FormDataDiri(modifier: Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
         )
-        Row {
-            gender.forEach { item ->
-                Row(
-                    modifier = Modifier.selectable(
-                        selected = textJK == item,
-                        onClick = { textJK = item }
-                    ), verticalAlignment = Alignment.CenterVertically) {
-                    RadioButton(
-                        selected = textJK == item,
-                        onClick = {
-                            textJK = item
-                        })
-                    Text(item)
-                }
-            }
-        }
-        OutlinedTextField(
-            value = textAlamat,
-            singleLine = true,
-            modifier = Modifier.width(250.dp),
-            label = { Text(text = "Alamat Lengkap") },
-            onValueChange = {
-                textAlamat = it
-            }
-        )
-        Divider(
-            modifier.padding(
-                bottom = dimensionResource(R.dimen.padding_medium), top = dimensionResource(
-                    R.dimen.padding_medium
-                )
-            ),
-            thickness = dimensionResource(R.dimen.divider_tipis),
-            color = Color.DarkGray
-        )
         Button(
-            modifier = Modifier.fillMaxWidth(1f),
-            enabled = textAlamat.isNotEmpty(),
             onClick = {
                 nama = textNama
                 jenis = textJK
                 alamat = textAlamat
-            }
-        ) {
-            Text(stringResource(R.string.submit))
-        }
-        Divider(
-            modifier = Modifier.padding(
-                bottom = dimensionResource(R.dimen.padding_medium), top = dimensionResource(
-                    id = R.dimen.padding_medium
-                )
-            ),
-            thickness = dimensionResource(R.dimen.divider_tipis),
-            color = Color.DarkGray
-        )
-        ElevatedCard(
-            elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
-            colors = CardDefaults.cardColors(containerColor = Color.Black),
+            },
+            enabled = textNama.isNotEmpty() && textAlamat.isNotEmpty(),
             modifier = Modifier
-                .height(100.dp)
-                .width(300.dp)
+                .fillMaxWidth()
+                .padding(top = 24.dp)
+                .height(dimensionResource(R.dimen.button_height)),
+            shape = RoundedCornerShape(dimensionResource(R.dimen.button_corner_radius)),
+            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF673AB7))
         ) {
-            Column(modifier = Modifier.padding(horizontal = 5.dp, vertical = 15.dp),) {
-                Text(text = "Nama   :" + nama, color = Color.White)
-                Text(text = "Gender :" + jenis, color = Color.White)
-                Text(text = "Alamat :" + alamat, color = Color.White)
+            Text(stringResource(R.string.submit), color = Color.White)
+        }
+        
+        if (nama.isNotEmpty()) {
+            ElevatedCard(
+                elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
+                colors = CardDefaults.cardColors(containerColor = Color.Black),
+                modifier = Modifier
+                    .padding(top = 24.dp)
+                    .fillMaxWidth()
+            ) {
+                Column(modifier = Modifier.padding(16.dp)) {
+                    Text(text = "Nama   : $nama", color = Color.White)
+                    Text(text = "Gender : $jenis", color = Color.White)
+                    Text(text = "Alamat : $alamat", color = Color.White)
+                }
             }
         }
     }
 }
+
 
