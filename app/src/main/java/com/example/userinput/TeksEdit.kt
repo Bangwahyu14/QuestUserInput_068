@@ -41,9 +41,7 @@ fun FormDataDiri(modifier: Modifier
     var alamat by remember { mutableStateOf("") }
     var jenis by remember { mutableStateOf("") }
 
-    val gender: List<String> = listOf(
-        stringResource(R.string.laki_laki),
-        stringResource(R.string.perempuan)
+    val gender: List<String> = listOf("laki-laki", "perempuan")
 
     Column(
         modifier = Modifier.padding(top = 50.dp),
@@ -52,13 +50,12 @@ fun FormDataDiri(modifier: Modifier
     ) {
         OutlinedTextField(
             value = textNama,
+            onValueChange = { textNama = it },
+            label = { Text(stringResource(R.string.hint_nama)) },
             singleLine = true,
-            shape = MaterialTheme.shapes.large,
-            modifier = Modifier.width(250.dp),
-            label = { Text(text = "Nama Lengkap") },
-            onValueChange = {
-                textNama = it
-            }
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp)
         )
         Row {
             gender.forEach { item ->
