@@ -155,5 +155,18 @@ fun FormulirPendaftaranScreen(modifier: Modifier = Modifier) {
                         .fillMaxWidth()
                         .padding(top = 4.dp, bottom = 16.dp)
                 )
+                Button(
+                    onClick = { /* TODO */ },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(48.dp),
+                    shape = RoundedCornerShape(50)
+                ) {
+                    Text("Submit")
+                }
+            }
+        }
+    }
+}
 
 
