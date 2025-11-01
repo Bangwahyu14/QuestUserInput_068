@@ -45,6 +45,12 @@ fun FormulirPendaftaranScreen(modifier: Modifier = Modifier) {
     var jenisKelamin by remember { mutableStateOf("") }
     var status by remember { mutableStateOf("") }
 
+    var submittedNama by remember { mutableStateOf("") }
+    var submittedJenis by remember { mutableStateOf("") }
+    var submittedStatus by remember { mutableStateOf("") }
+    var submittedAlamat by remember { mutableStateOf("") }
+
+
     val genderOptions = listOf("Laki-laki", "Perempuan")
     val statusOptions = listOf("Janda", "Lajang", "Duda")
 
