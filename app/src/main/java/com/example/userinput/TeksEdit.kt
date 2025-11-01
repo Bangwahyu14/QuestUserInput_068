@@ -168,11 +168,27 @@ fun FormulirPendaftaranScreen(modifier: Modifier = Modifier) {
                         .height(48.dp),
                     shape = RoundedCornerShape(50)
                 ) {
-                    Text("Submit")
+                    Text("Submit")if (submittedNama.isNotEmpty()) {
+                    ElevatedCard(
+                        elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
+                        colors = CardDefaults.cardColors(containerColor = Color.Black),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 10.dp)
+                    ) {
+                        Column(
+                            modifier = Modifier.padding(horizontal = 10.dp, vertical = 15.dp)
+                        ) {
+                            Text("Nama   : $submittedNama", color = Color.White)
+                            Text("Gender : $submittedJenis", color = Color.White)
+                            Text("Status : $submittedStatus", color = Color.White)
+                            Text("Alamat : $submittedAlamat", color = Color.White)
+                        }
+                    }
+                }
                 }
             }
         }
     }
 }
-
 
