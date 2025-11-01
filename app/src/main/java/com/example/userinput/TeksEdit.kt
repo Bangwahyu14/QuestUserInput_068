@@ -141,4 +141,19 @@ fun FormulirPendaftaranScreen(modifier: Modifier = Modifier) {
 
                 Spacer(modifier = Modifier.height(12.dp))
 
+                Text(
+                    text = "ALAMAT",
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 14.sp
+                )
+                OutlinedTextField(
+                    value = alamat,
+                    onValueChange = { alamat = it },
+                    label = { Text("Alamat") },
+                    singleLine = true,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 4.dp, bottom = 16.dp)
+                )
+
 
