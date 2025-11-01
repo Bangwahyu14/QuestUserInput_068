@@ -1,6 +1,7 @@
 package com.example.userinput
 
 import android.R.attr.text
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -34,22 +35,19 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun FormDataDiri(modifier: Modifier
-) {
-    var textNama by remember { mutableStateOf("") }
-    var textAlamat by remember { mutableStateOf("") }
-    var textJK by remember { mutableStateOf("") }
-
+fun FormulirPendaftaranScreen(modifier: Modifier = Modifier) {
     var nama by remember { mutableStateOf("") }
     var alamat by remember { mutableStateOf("") }
-    var jenis by remember { mutableStateOf("") }
+    var jenisKelamin by remember { mutableStateOf("") }
+    var status by remember { mutableStateOf("") }
 
-    val gender: List<String> = listOf("laki-laki", "perempuan")
+    val genderOptions = listOf("Laki-laki", "Perempuan")
+    val statusOptions = listOf("Janda", "Lajang", "Duda")
 
     Column(
-        modifier = Modifier.padding(top = 50.dp),
-        verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.CenterHorizontally
+        modifier = modifier
+            .fillMaxSize()
+            .background(Color(0xFFF5F5F5))
     ) {
         OutlinedTextField(
             value = textNama,
@@ -116,7 +114,7 @@ fun FormDataDiri(modifier: Modifier
         ) {
             Text(stringResource(R.string.submit), color = Color.White)
         }
-        
+
         if (nama.isNotEmpty()) {
             ElevatedCard(
                 elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
