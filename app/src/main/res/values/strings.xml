@@ -5,4 +5,6 @@
     <string name="hint_nama">Isian nama lengkap</string>
     <string name="hint_alamat">Isian alamat lengkap</string>
     <string name="jenis_kelamin">Jenis Kelamin</string>
+    <string name="laki_laki">Laki-laki</string>
+    <string name="perempuan">Perempuan</string>
 </resources>
