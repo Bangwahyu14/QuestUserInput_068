@@ -116,4 +116,29 @@ fun FormulirPendaftaranScreen(modifier: Modifier = Modifier) {
 
                 Spacer(modifier = Modifier.height(12.dp))
 
+                Text(
+                    text = "STATUS PERKAWINAN",
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 14.sp
+                )
+                statusOptions.forEach { option ->
+                    Row(
+                        modifier = Modifier
+                            .selectable(
+                                selected = status == option,
+                                onClick = { status = option }
+                            )
+                            .padding(vertical = 4.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        RadioButton(
+                            selected = status == option,
+                            onClick = { status = option }
+                        )
+                        Text(option)
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(12.dp))
+
 
