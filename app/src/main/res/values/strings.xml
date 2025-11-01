@@ -9,4 +9,7 @@
     <string name="perempuan">Perempuan</string>
     <string name="status_perkawinan">Status Perkawinan</string>
     <string name="janda">Janda</string>
+    <string name="lajang">Lajang</string>
+    <string name="duda">Duda</string>
+    <string name="alamat">Alamat</string>
 </resources>
